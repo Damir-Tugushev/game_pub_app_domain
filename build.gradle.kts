@@ -6,24 +6,16 @@ plugins {
     kotlin("jvm") version "1.6.0"
 }
 
-group = "io.github.damir-tugushev.game_pub_app"
+group = "io.github.damir_tugushev.game_pub_app"
 version = "0.1.0"
 
-repositories {
-    mavenCentral()
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 kotlin {
     explicitApi()
-}
-
-dependencies {
-    // Kotlin
-    implementation(kotlin("stdlib-jdk8", version = "1.6.0"))
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
 }
 
 publishing {
@@ -34,5 +26,20 @@ publishing {
 
             from(components["kotlin"])
         }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Kotlin
+    implementation(kotlin("stdlib-jdk8", version = "1.6.0"))
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
