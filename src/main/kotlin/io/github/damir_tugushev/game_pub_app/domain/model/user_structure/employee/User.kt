@@ -6,4 +6,5 @@ import java.sql.Timestamp
 
 public interface User : Entity<String>, Datable {
     public val passwordEncrypted: String
+    public val employee: Employee
 }
